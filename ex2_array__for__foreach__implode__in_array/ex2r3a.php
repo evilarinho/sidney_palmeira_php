@@ -34,36 +34,38 @@
            PHP      8.00    9.00    8,50    APROVADO
            MySQL    7.50    7.50    7.50    APROVADO
            ---------------------------------------------
+
     */
 
+    // **** RESPOSTA 3 *****
+ 
+    $valores = array(2,3,5,1,8,10,4);
+    $qtdItens = 0;
+    $menorValor = 1000000;
+    $maiorValor = -1000000;
+    $somaValores = 0; 
+    $media = 0;
+    $resultadoArray = "";
 
-     // **** RESPOSTA 1 *****
-
-    date_default_timezone_set('America/Recife');
-    //echo date('d/m/Y H:i:s');
-    $nome = "José";
-    $horaAtual = date('H:i');
-    $apenasHora = date('H');
-    //echo "$apenasHora<br>";
-    //echo "<br>São $hora h";  
-
-    if ( ($apenasHora >= 0) and ($apenasHora < 12) ) {
-        $msg = "Bom Dia";
-    } else if ( ($apenasHora >= 12) and ($apenasHora < 18) ) {
-        $msg = "Boa Tarde";
-    } else {
-        $msg = "Boa Noite";
+    foreach($valores as $valor) {
+        $qtdItens ++;
+        $resultadoArray = $resultadoArray . $valor . "  ";
+        $somaValores += $valor;
+        if ($valor < $menorValor) {
+            $menorValor = $valor;
+        }
+        if ($valor > $maiorValor) {
+            $maiorValor = $valor;
+        }        
     }
-    echo "<br>São " . $horaAtual . ", $msg $nome";
+    $media = $somaValores / $qtdItens;
+
+    echo "Resultado do array ( " . $resultadoArray .")<br>";
+    echo "Qtd de itens......: $qtdItens<br>";
+    echo "Menor valor.......: $menorValor<br>";
+    echo "Maior valor.......: $maiorValor<br>";
+    echo "Soma dos valores..: $somaValores<br>";
+    echo "Média dos valores.: " . number_format($media, 3, ',', '.');         
+           
     
-   
-    
-    // echo number_format(1500, 2, ',', '.');
-    /*
-    $valores = array(2,3,4);
-    var_dump($valores);
-    $valores = [2,3,4];
-    var_dump($valores);
-    phpinfo();
-    */
 ?>

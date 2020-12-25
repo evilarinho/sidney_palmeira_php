@@ -34,36 +34,22 @@
            PHP      8.00    9.00    8,50    APROVADO
            MySQL    7.50    7.50    7.50    APROVADO
            ---------------------------------------------
+
     */
 
+    // **** RESPOSTA 2 *****
+ 
+    $TVLigada = false;
+    $canal = 4;
 
-     // **** RESPOSTA 1 *****
+    if ($TVLigada) {
+        echo "A TV ESTÁ LIGADA NO CANAL $canal<br>";
+        $TVLigada = false;
+        echo "AGORA A TV ESTÁ DESLIGADA.";
 
-    date_default_timezone_set('America/Recife');
-    //echo date('d/m/Y H:i:s');
-    $nome = "José";
-    $horaAtual = date('H:i');
-    $apenasHora = date('H');
-    //echo "$apenasHora<br>";
-    //echo "<br>São $hora h";  
-
-    if ( ($apenasHora >= 0) and ($apenasHora < 12) ) {
-        $msg = "Bom Dia";
-    } else if ( ($apenasHora >= 12) and ($apenasHora < 18) ) {
-        $msg = "Boa Tarde";
     } else {
-        $msg = "Boa Noite";
+        echo "A TV ESTÁ DESLIGADA.<br>";
+        $TVLigada = true;
+        echo "AGORA A TV ESTÁ LIGADA NO CANAL $canal";
     }
-    echo "<br>São " . $horaAtual . ", $msg $nome";
-    
-   
-    
-    // echo number_format(1500, 2, ',', '.');
-    /*
-    $valores = array(2,3,4);
-    var_dump($valores);
-    $valores = [2,3,4];
-    var_dump($valores);
-    phpinfo();
-    */
 ?>
