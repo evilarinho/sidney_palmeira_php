@@ -37,51 +37,53 @@
 
     */
     // **** RESPOSTA 4 *****   
-    
-    /*
-    $bolao = array( array(13, 32, 41, 59, 70, 0, 'NÃO CONFERIDA'),
-                    array(04, 33, 41, 57, 67, 0, 'NÃO CONFERIDA'), 
-                    array(27, 38, 40, 51, 77, 0, 'NÃO CONFERIDA'), 
-                    array(30, 32, 40, 59, 61, 0, 'NÃO CONFERIDA'), 
-                    array(28, 34, 45, 55, 63, 0, 'NÃO CONFERIDA')
-                );  
-    
-    $numerosSorteados = array(2, 38, 40, 57, 62);
-    */
-    
-    
+
     $bolao = array( array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'),
                     array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
                     array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
                     array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
                     array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA')
-                );  
-           
+                );
+    
+    
+    //natsort($bolao);
+    
+    //var_dump($bolao);
+    
     $numerosSorteados = array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80));
     
+    natsort($numerosSorteiados);
 
-    natsort($numerosSorteados);
+    //var_dump($numerosSorteados);
     
-     // **** RESPOSTA 4 *****  correção p/Passar pelos números sorteados
     foreach($numerosSorteados as $numeroSorteado) {
-        for ($aposta = 0; $aposta < count($bolao); $aposta++) {             
+        for ($aposta = 0; $aposta < count($bolao); $aposta++) {
             if ( in_array($numeroSorteado, $bolao[$aposta])) {
                 $bolao[$aposta][5] += 1;
                 if ($bolao[$aposta][5] >= 2 ) {
-                    $bolao[$aposta][6] = "***APOSTA PREMIADA***";                    
-                }                                                
-            }else if ($bolao[$aposta][5] < 2) {
-                $bolao[$aposta][6] = "APOSTA NÃO PREMIADA"; 
-              }
+                    $bolao[$aposta][6] = "***APOSTA PREMIADA***";        
+                }             
+            } else {
+                $bolao[$aposta][6] = "APOSTA NÃO PREMIADA";
+            }
+
         }
     }
+
     echo "<br> *** RESULTADO DO SORTEIO ***";
     echo "<br>Números Sorteados: " , implode(" - ", $numerosSorteados);
     echo "<br>Apostas Efetuadas: ";
+
     foreach ($bolao as $aposta) {
         echo "<br>";
         foreach($aposta as $numeroApostado) {
             echo str_pad($numeroApostado,2, '0', STR_PAD_LEFT) . " ";
         }
-    }         
+    }
+
+
+    
+
+
+        
 ?>
