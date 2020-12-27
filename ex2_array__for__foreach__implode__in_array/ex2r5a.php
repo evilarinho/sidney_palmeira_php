@@ -36,52 +36,47 @@
            ---------------------------------------------
 
     */
-    // **** RESPOSTA 4 *****   
+    // **** RESPOSTA 5 *****   
+    // **** Versão a ****            
     
-    /*
-    $bolao = array( array(13, 32, 41, 59, 70, 0, 'NÃO CONFERIDA'),
-                    array(04, 33, 41, 57, 67, 0, 'NÃO CONFERIDA'), 
-                    array(27, 38, 40, 51, 77, 0, 'NÃO CONFERIDA'), 
-                    array(30, 32, 40, 59, 61, 0, 'NÃO CONFERIDA'), 
-                    array(28, 34, 45, 55, 63, 0, 'NÃO CONFERIDA')
+    $materias = array( array('CSS', 5.00, 6.00, 0.00, "NÃO AVALIADO"),
+                       array('HTML', 6.00, 3.50, 0.00, "NÃO AVALIADO"),
+                       array('Ajax', 4.50, 8.50, 0.00, "NÃO AVALIADO"),
+                       array('PHP', 8.00, 9.00, 0.00, "NÃO AVALIADO"),
+                       array('MySQL', 7.50, 7.50, 0.00, "NÃO AVALIADO"),
+                       
                 );  
+    //var_dump($materias);
     
-    $numerosSorteados = array(2, 38, 40, 57, 62);
-    */
-    
-    
-    $bolao = array( array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'),
-                    array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
-                    array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
-                    array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
-                    array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA')
-                );  
-           
-    $numerosSorteados = array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80));
-    
-
-    natsort($numerosSorteados);
-    
-     // **** RESPOSTA 4 *****  correção p/Passar pelos números sorteados
-    foreach($numerosSorteados as $numeroSorteado) {
-        for ($aposta = 0; $aposta < count($bolao); $aposta++) {             
-            if ( in_array($numeroSorteado, $bolao[$aposta])) {
-                $bolao[$aposta][5] += 1;
-                if ($bolao[$aposta][5] >= 2 ) {
-                    $bolao[$aposta][6] = "***APOSTA PREMIADA***";                    
-                }                                                
-            }else if ($bolao[$aposta][5] < 2) {
-                $bolao[$aposta][6] = "APOSTA NÃO PREMIADA"; 
-              }
+    for ($i = 0; ($i < count($materias)); $i++) {
+        $materias[$i][3] = ($materias[$i][1] + $materias[$i][2]) / 2; 
+        if ( $materias[$i][3] < 5) {
+            $materias[$i][4] = "REPROVADO";
+        } else if ( $materias[$i][3] < 7) {
+            $materias[$i][4] = "EM EXAME";            
+        } else {
+            $materias[$i][4] = "APROVADO";
         }
     }
-    echo "<br> *** RESULTADO DO SORTEIO ***";
-    echo "<br>Números Sorteados: " , implode(" - ", $numerosSorteados);
-    echo "<br>Apostas Efetuadas: ";
-    foreach ($bolao as $aposta) {
-        echo "<br>";
-        foreach($aposta as $numeroApostado) {
-            echo str_pad($numeroApostado,2, '0', STR_PAD_LEFT) . " ";
-        }
-    }         
+    //var_dump($materias);
+
+
+    echo "--------------------------------------------------<br>";
+    echo "Materia  N1        N2        Media      Situação<br>";
+    echo "--------------------------------------------------<br>";  
+    for ($i = 0; ($i < count($materias)); $i++) {
+        echo $materias[$i][0];
+        echo "                                  ";
+        echo $materias[$i][1];
+        echo "   ";
+        echo $materias[$i][2];
+        echo "   ";
+        echo $materias[$i][3];
+        echo "   ";
+        echo $materias[$i][4];
+        echo "   ";              
+        echo "<br>"; 
+    }          
+    echo "---------------------------------------------";
+    
 ?>

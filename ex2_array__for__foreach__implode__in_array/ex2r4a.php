@@ -37,6 +37,7 @@
 
     */
     // **** RESPOSTA 4 *****   
+    // **** Versão a ****  
 
     $bolao = array( array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'),
                     array(rand(1,29), rand(30,39), rand(40,49), rand(50,59), rand(60,80), 0, 'NÃO CONFERIDA'), 
