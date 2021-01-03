@@ -1,8 +1,7 @@
 <?php
     class Caminhao extends Veiculo {
         public $pesoLiquido;
-        public $capacidadeDeCarga;
-    
+        public $capacidadeDeCarga;    
 
         function mostrarFichaCaminhao() {
             $ficha = "<h2> Ficha do " . get_class($this) . "</h2>";

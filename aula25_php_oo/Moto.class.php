@@ -1,7 +1,6 @@
 <?php
 class Moto extends Veiculo {
-    public $cilindradas;   
-
+    public $cilindradas; 
 
     function mostrarFichaMoto() {
         $ficha = "<h2> Ficha do " . get_class($this) . "</h2>";
