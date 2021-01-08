@@ -8,3 +8,4 @@ mario@uol.com.br;Mario;1234;
 mario@uol.com.br;Mario;1234;
 mario@uol.com.br;Mario;1234;
 mario@uol.com.br;Mario;1234;
+maria@uol.com;Maria;12345;
