@@ -1,8 +1,8 @@
 <?php
 /* 
-    *******************************************************************************************
-    Nessa aula veremos como criar o cadastro em arquivo texto com PHP, operação Create do CRUD.
-    *******************************************************************************************
+    ************************************************************
+    Nessa aulas vamos criar o formulário de pesquisa de usuários
+    ************************************************************
 */
     //var_dump($_POST);
 
@@ -23,8 +23,9 @@
     //var_dump($_GET);
 
     //Listar
+    
     if ( ( isset($_GET['act']) ) and 
-    ($_GET['act'] == 'listar') ) {
+        ($_GET['act'] == 'listar') ) {
         echo "<table width='80% align='center' border='1'>";
         echo "<tr>";
         echo "<th>Nome</th>";
@@ -34,4 +35,5 @@
         echo $usuario->listar();
         echo "</table>";        
     } 
+    
 ?>
