@@ -8,7 +8,8 @@
         public function menu() {
             $html  = "<p> <a href=\"UsuarioController.php?act=listar\"> Listar </a>";
             $html .= " | <a href=\"UsuarioCadastrar.php\"> Cadastrar </a>";
-            $html .= "<a href=\"UsuarioPesquisar.php\"> Pesquisar </a> </p>";
+            $html .= " | <a href=\"UsuarioPesquisar.php\"> Pesquisar </a> </p>";
+            $html .= " | <a href=\"UsuarioExcel.php\"> Exportar Excel </a> </p>";
 
             return $html;
         } 
@@ -48,6 +49,32 @@
             fclose($arquivo);
             return $html;
         }
+
+        public function pesquisar() {                 
+            $arquivo = fopen($this->nomeArquivo, 'r');                  
+            $html = "<p style='color: red;'>Usuário <b> $this->email </b> não encontrado.</p>";                                             
+            while ( ! feof($arquivo) ) {
+                $UsuarioDados = explode(";", substr(fgets($arquivo), 0, -2) );
+                if ( $UsuarioDados[0] == $this->email ) {
+                    $html  = "<table width='80%' align='center' border='1'>";
+                    $html .= "<tr>";
+                    $html .= "<th>E-mail</th>";
+                    $html .= "<th>Nome</th>";
+                    $html .= "<th>Senha</th>";
+                    $html .= "</tr>";
+                    $html .= "<tr>";
+                    foreach ($UsuarioDados as $valor) {
+                        $html .= "<td>$valor</td>";                    
+                    }
+                    $html .= "</tr>";  
+                    $html .= "</table>";                                     
+                    fclose($arquivo);            
+                    return $html;
+                }           
+            }         
+            fclose($arquivo);
+            return $html;
+        }        
     }
 
 

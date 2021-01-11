@@ -15,3 +15,6 @@ jose@terra.com.br;José;123456;
 zeze@terra.com.br;Zeze;312323213;
 luiz@gmail.com;Luiz;1234;
 marcela@terra.com.br;Marcela;34454;
+maria2@terra.com.br;Maria2;324334;
+mario2@gamil.com;Mario2;22321323;
+zeze2@gmail.com;Zeze2;44333;

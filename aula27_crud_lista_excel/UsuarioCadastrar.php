@@ -1,7 +1,8 @@
 <!-- 
-    ************************************************************************
-    Nessa aula vamos listar os dados dos usuários, gravados no arquivo texto
-    ************************************************************************
+    ************************************************************
+    Nessa aula vamos aprender a criar uma lista zebrada e salvar
+    nosso cadastro em aquivo do Microsoft Excel.
+    ************************************************************
 -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,12 +12,17 @@
     <title>PHP Cadastro de Usuário em TXT</title>
 </head>
 <body>
+<?php
+    require_once('Usuario.class.php');
+    $usuario = new Usuario();
 
-<a href="UsuarioController.php?act=listar"> Listar </a>        
+    echo $usuario->menu();
+?>
 
 <form method="post" action="UsuarioController.php">
+    <input type="hidden" name="act" value="cadastrar">
 
-    <table align="center" width="300" border="1">
+    <table align="center" width="300" border="0">
         <tr>
             <td colspan="2" bgcolor="lightgray" align="center">
                 Cadastro de Usuário
@@ -25,17 +31,17 @@
 
         <tr>
             <td align="right">Nome</td>
-            <td> <input type="text" name="txtNome"> </td>
+            <td> <input type="text" name="txtNome" autofocus required > </td>
         </tr>
 
         <tr>
             <td align="right">E-mail</td>
-            <td> <input type="email" name="txtEmail"> </td>
+            <td> <input type="email" name="txtEmail" required > </td>
         </tr>
 
         <tr>
             <td align="right">Senha</td>
-            <td> <input type="password" name="txtSenha"> </td>
+            <td> <input type="password" name="txtSenha" required > </td>
         </tr>
 
         <tr>

@@ -12,7 +12,7 @@
 
     //var_dump($usuario);
     // Cadastrar
-    if ( $_POST ) {
+    if ( isset($_POST['act']) and ($_POST['act'] == 'cadastrar') ) {
         $usuario->email = $_POST['txtEmail'];
         $usuario->nome  = $_POST['txtNome'];
         $usuario->senha = $_POST['txtSenha'];
@@ -24,8 +24,14 @@
         
     }   
 
-    //var_dump($usuario);
-    //var_dump($_GET);
+        
+
+    if ( isset($_POST['act']) and ($_POST['act'] == 'pesquisar') ) {
+        $usuario->email = $_POST['txtEmail'];            
+        echo $usuario->pesquisar();       
+        
+    }   
+
 
     //Listar
     

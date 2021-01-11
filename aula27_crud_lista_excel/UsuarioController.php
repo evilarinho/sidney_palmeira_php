@@ -1,7 +1,8 @@
 <?php
 /* 
     ************************************************************
-    Nessa aulas vamos criar o formulário de pesquisa de usuários
+    Nessa aula vamos aprender a criar uma lista zebrada e salvar
+    nosso cadastro em aquivo do Microsoft Excel.
     ************************************************************
 */
     //var_dump($_POST);
@@ -12,7 +13,7 @@
 
     //var_dump($usuario);
     // Cadastrar
-    if ( $_POST ) {
+    if ( isset($_POST['act']) and ($_POST['act'] == 'cadastrar') ) {
         $usuario->email = $_POST['txtEmail'];
         $usuario->nome  = $_POST['txtNome'];
         $usuario->senha = $_POST['txtSenha'];
@@ -24,8 +25,14 @@
         
     }   
 
-    //var_dump($usuario);
-    //var_dump($_GET);
+        
+
+    if ( isset($_POST['act']) and ($_POST['act'] == 'pesquisar') ) {
+        $usuario->email = $_POST['txtEmail'];            
+        echo $usuario->pesquisar();       
+        
+    }   
+
 
     //Listar
     
