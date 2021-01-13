@@ -9,7 +9,8 @@
             $html  = "<p style='text-align: center;'> <a href=\"UsuarioController.php?act=listar\"> Listar </a>";
             $html .= " | <a href=\"UsuarioCadastrar.php\"> Cadastrar </a>";
             $html .= " | <a href=\"UsuarioPesquisar.php\"> Pesquisar </a>";
-            $html .= " | <a href=\"UsuarioExcel.php\"> Exportar Excel </a> </p>";
+            $html .= " | <a href=\"UsuarioExcel.php\"> Exportar Excel </a>";
+            $html .= " | <a href=\"index.php\"> Sair </a> </p>";
 
             return $html;
         } 
