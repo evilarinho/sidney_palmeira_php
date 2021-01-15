@@ -1,4 +1,10 @@
 <?php
+/*
+    **************************************************************
+    Nessa aula vamos criar o link para edição na lista de usuários
+    e melhorar nosso código de acesso aos dados.
+    **************************************************************
+*/
     class Usuario {
         public $nome;
         public $email;
@@ -22,7 +28,7 @@
                     fwrite($arquivo, "\n");
                     fwrite($arquivo, $this->email . ";");
                     fwrite($arquivo, $this->nome  . ";");
-                    fwrite($arquivo, $this->senha . ";");            
+                    fwrite($arquivo, $this->senha);            
                     fclose($arquivo); 
                     return true;
                 } else {
@@ -39,7 +45,7 @@
             $bgColor = "white";
 
             while ( ! feof($arquivo) ) {
-                $UsuarioDados = explode(";", substr(fgets($arquivo), 0, -2) );
+                $UsuarioDados = explode(";", fgets($arquivo) );
                 //$html .= "<tr bgcolor='$bgColor'>";
                 $html .= "<tr>";
 
@@ -54,8 +60,10 @@
                     //$html .= "<td>$valor</td>";
                     $html .= "<td bgcolor='$bgColor'>$valor</td>";                    
                 }
-                $html .= "</tr>";
 
+                $html .= "<td bgcolor='$bgColor'> <a href='UsuarioController.php?act=editar&email=$UsuarioDados[0]'> Editar </a> </td>";
+
+                $html .= "</tr>";
             }            
 
             fclose($arquivo);
@@ -66,7 +74,7 @@
             $arquivo = fopen($this->nomeArquivo, 'r');                  
             $html = "<p style='color: red;'>Usuário <b> $this->email </b> não encontrado.</p>";                                             
             while ( ! feof($arquivo) ) {
-                $UsuarioDados = explode(";", substr(fgets($arquivo), 0, -2) );
+                $UsuarioDados = explode(";", fgets($arquivo) );
                 if ( $UsuarioDados[0] == $this->email ) {
                     $html  = "<table width='80%' align='center' border='1'>";
                     $html .= "<tr>";
@@ -92,7 +100,7 @@
             $arquivo = fopen($this->nomeArquivo, 'r');                  
             
             while ( ! feof($arquivo) ) {
-                $UsuarioDados = explode(";", substr(fgets($arquivo), 0, -2) );
+                $UsuarioDados = explode(";", fgets($arquivo) );
                 
                 if ( ( $UsuarioDados[0] == $this->email ) and ( $UsuarioDados[2] == $this->senha ) ) {
                     fclose($arquivo);            

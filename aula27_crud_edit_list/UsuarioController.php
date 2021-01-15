@@ -1,8 +1,9 @@
 <?php
 /* 
-    *******************************************************
-    Nessa aula vamos fazer o backend do formulário de login
-    *******************************************************
+    **************************************************************
+    Nessa aula vamos criar o link para edição na lista de usuários
+    e melhorar nosso código de acesso aos dados.
+    **************************************************************
 */
     //var_dump($_POST);
 
@@ -42,6 +43,7 @@
         echo "<th>Nome</th>";
         echo "<th>E-mail</th>";
         echo "<th>Senha</th>";
+        echo "<th>Ações</th>";
         echo "</tr>";
         echo $usuario->listar();
         echo "</table>";        
